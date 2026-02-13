@@ -2,7 +2,12 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: white;
-    overflow: hidden;
+    overflow-x: hidden;
+    background: black;
+}
+
+.hidden {
+    display: none !important;
 }
 
 /* YILDIZ CANVAS */
@@ -10,31 +15,34 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: black;
     z-index: -1;
 }
 
-/* ŞİFRE EKRANI */
+/* ŞİFRE */
 #lockScreen {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 15px;
+}
+
+#lockScreen h1 {
+    font-size: 36px;
 }
 
 input {
-    padding: 15px;
-    font-size: 20px;
-    margin: 20px;
+    padding: 12px;
+    font-size: 18px;
     border-radius: 10px;
     border: none;
 }
 
 button {
-    padding: 18px 40px;
-    font-size: 22px;
-    border-radius: 40px;
+    padding: 15px 35px;
+    font-size: 20px;
+    border-radius: 30px;
     border: none;
     cursor: pointer;
     transition: 0.3s;
@@ -44,42 +52,42 @@ button:hover {
     transform: scale(1.1);
 }
 
-.hidden {
-    display: none;
+/* ANA SİTE */
+#siteContent {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* SLAYT */
 #slider {
-    width: 300px;
-    height: 400px;
-    overflow: hidden;
-    margin: 40px auto;
+    width: 280px;
+    height: 380px;
     position: relative;
+    margin-bottom: 40px;
 }
 
 #slider img {
     width: 100%;
     height: 100%;
-    position: absolute;
     object-fit: cover;
+    position: absolute;
     opacity: 0;
-    transition: 1s;
+    transition: opacity 1s ease-in-out;
+    border-radius: 15px;
 }
 
 /* SORU */
-#questionSection {
-    text-align: center;
-}
-
 #questionSection h2 {
-    font-size: 42px;
-    margin-bottom: 30px;
+    font-size: 40px;
+    margin-bottom: 25px;
 }
 
 .buttons {
     display: flex;
-    justify-content: center;
-    gap: 40px;
+    gap: 30px;
 }
 
 #yesBtn {
@@ -93,9 +101,9 @@ button:hover {
 }
 
 #warningText {
-    font-size: 28px;
+    margin-top: 15px;
+    font-size: 24px;
     color: yellow;
-    margin-top: 20px;
 }
 
 /* FİNAL */
@@ -112,7 +120,7 @@ button:hover {
 }
 
 #bigHeart {
-    font-size: 150px;
+    font-size: 130px;
     animation: pulse 1s infinite;
 }
 
