@@ -5,7 +5,7 @@
 <title>Senin İçin ❤️</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="lock-mode">
 
 <canvas id="stars"></canvas>
 
@@ -14,15 +14,14 @@
     <h1>Kalbimin Şifresi Nedir? 🔐</h1>
     <input type="password" id="passwordInput" placeholder="Şifreyi gir...">
     <button id="unlockBtn" type="button">Aç ❤️</button>
-    <p id="errorText" class="hidden">Yanlış şifre 😏</p>
 </div>
 
-<!-- UNLOCK YAZISI -->
+<!-- UNLOCK YAZI -->
 <div id="afterUnlock" class="hidden">
     <h1 id="unlockText"></h1>
 </div>
 
-<!-- GİRİŞ MESAJLARI -->
+<!-- GİRİŞ MESAJ -->
 <div id="introMessages" class="hidden">
     <h1 id="introText"></h1>
 </div>
@@ -49,10 +48,13 @@
 
 <!-- EVET SONRASI -->
 <div id="loveScreen" class="hidden">
-    <h1>Beni çok sevdiğini biliyordum 😌❤️</h1>
-    <p>Tabii ki başka seçenek mi olacaktı zaten 😏</p>
-    <div class="emoji">❤️😊</div>
-    <button id="nextMessageBtn">Sana ufak bi mesajım var</button>
+    <div class="love-box">
+        <h1>Tabii ki seviyorsun 😌❤️</h1>
+        <p>Bunu zaten biliyordum...</p>
+        <p>Başka seçenek mi olacaktı ki? 😏</p>
+        <div class="emoji">❤️😊✨</div>
+        <button id="nextMessageBtn">Sana ufak bi mesajım var 💌</button>
+    </div>
 </div>
 
 <!-- NOT KAĞIDI -->
@@ -62,8 +64,8 @@
         <p>
             BURAYA UZUN MESAJINI YAZABİLİRSİN...
             Seni ne kadar sevdiğini,
-            hayatına nasıl anlam kattığını,
-            her şeyi içinden geldiği gibi yaz 💌
+            onun hayatındaki yerini,
+            kalbinden geçen her şeyi yaz 💘
         </p>
     </div>
 </div>
