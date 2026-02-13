@@ -2,15 +2,15 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: white;
-    overflow-x: hidden;
     background: black;
+    overflow-x: hidden;
 }
 
 .hidden {
     display: none !important;
 }
 
-/* YILDIZ */
+/* YILDIZ CANVAS */
 #stars {
     position: fixed;
     width: 100%;
@@ -18,22 +18,24 @@ body {
     z-index: -1;
 }
 
-/* ŞİFRE */
+/* ORTAK MERKEZLEME */
 #lockScreen,
-#afterUnlock {
+#afterUnlock,
+#introMessages,
+#loveScreen,
+#noteScreen {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
     text-align: center;
+    padding: 20px;
 }
 
-#lockScreen h1,
-#afterUnlock h1 {
+/* ŞİFRE */
+#lockScreen h1 {
     font-size: 36px;
-    max-width: 600px;
 }
 
 input {
@@ -41,6 +43,7 @@ input {
     font-size: 18px;
     border-radius: 10px;
     border: none;
+    margin-top: 15px;
 }
 
 button {
@@ -50,14 +53,21 @@ button {
     border: none;
     cursor: pointer;
     transition: 0.3s;
+    margin-top: 15px;
 }
 
 button:hover {
     transform: scale(1.1);
 }
 
-/* ANA SİTE */
-#siteContent {
+/* GİRİŞ MESAJI */
+#introText {
+    font-size: 32px;
+    max-width: 600px;
+}
+
+/* ANA BÖLÜM */
+#mainSection {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -86,7 +96,7 @@ button:hover {
 /* SORU */
 #questionSection h2 {
     font-size: 40px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .buttons {
@@ -105,7 +115,25 @@ button:hover {
 }
 
 #warningText {
-    margin-top: 15px;
+    margin-top: 35px;
     font-size: 24px;
     color: yellow;
+}
+
+/* EVET SONRASI */
+.emoji {
+    font-size: 60px;
+    margin: 20px 0;
+}
+
+/* NOT KAĞIDI */
+.note {
+    background: #fff8dc;
+    color: black;
+    padding: 40px;
+    width: 70%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    font-family: cursive;
 }
