@@ -95,4 +95,17 @@ button:hover {
 }
 
 #yesBtn {
-    bac
+    background: #ff007f;
+    color: white;
+}
+
+#noBtn {
+    background: #444;
+    color: white;
+}
+
+#warningText {
+    margin-top: 15px;
+    font-size: 24px;
+    color: yellow;
+}
