@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(drawStars, 60);
 
     // ŞİFRE
-    const correctPassword = "1234";
+    const correctPassword = "Özden";
 
     document.getElementById("unlockBtn").addEventListener("click", function () {
 
@@ -126,4 +126,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
 
