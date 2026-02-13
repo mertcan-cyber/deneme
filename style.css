@@ -5,13 +5,12 @@ body {
     transition: background 1s ease;
 }
 
-/* LOCK MODE */
+/* BACKGROUND MODES */
 .lock-mode {
     background: black;
     color: white;
 }
 
-/* LOVE MODE */
 .love-mode {
     background: linear-gradient(135deg, #ff4e8b, #8a2be2);
     color: white;
@@ -29,12 +28,8 @@ body {
     z-index: -1;
 }
 
-/* MERKEZLEME ORTAK */
-#lockScreen,
-#afterUnlock,
-#introMessages,
-#loveScreen,
-#noteScreen {
+/* CENTER */
+.center {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -44,45 +39,25 @@ body {
     padding: 20px;
 }
 
-/* INPUT */
-input {
-    padding: 12px;
-    font-size: 18px;
-    border-radius: 10px;
-    border: none;
-    margin-top: 15px;
-}
-
-/* BUTTON */
-button {
-    padding: 15px 35px;
-    font-size: 20px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-top: 20px;
-}
-
-button:hover {
-    transform: scale(1.1);
-}
-
-/* MAIN ORTALAMA */
+/* MAIN */
 #mainSection {
     height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
-    text-align: center;
+}
+
+.mainInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 }
 
 /* SLIDER */
 #slider {
-    width: 280px;
-    height: 380px;
+    width: 300px;
+    height: 420px;
     position: relative;
 }
 
@@ -92,25 +67,33 @@ button:hover {
     object-fit: cover;
     position: absolute;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
-    border-radius: 15px;
+    transition: opacity 1s ease;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
 /* SORU */
-#questionSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#questionSection h2 {
-    font-size: 42px;
+h2 {
+    font-size: 38px;
+    margin: 0;
 }
 
 .buttons {
     display: flex;
-    gap: 30px;
-    margin-top: 20px;
+    gap: 25px;
+}
+
+button {
+    padding: 14px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
 }
 
 #yesBtn {
@@ -124,37 +107,58 @@ button:hover {
 }
 
 #warningText {
-    margin-top: 35px;
-    font-size: 24px;
+    margin-top: 25px;
     color: yellow;
 }
 
-/* LOVE BOX */
-.love-box {
+/* LOVE SCREEN */
+.loveBox {
     background: rgba(255,255,255,0.15);
-    padding: 50px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    padding: 60px;
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    animation: fadeIn 1s ease forwards;
 }
 
-.love-box h1 {
-    font-size: 42px;
-}
-
-.emoji {
-    font-size: 60px;
+.bigHeart {
+    font-size: 70px;
     margin: 20px 0;
+    animation: heartbeat 1.2s infinite;
 }
 
 /* NOTE */
-.note {
+.notePaper {
     background: #fff8dc;
-    color: black;
-    padding: 40px;
-    width: 70%;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-    font-family: cursive;
+    color: #333;
+    padding: 50px;
+    width: 75%;
+    max-width: 650px;
+    border-radius: 8px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+    font-family: 'Brush Script MT', cursive;
+    font-size: 20px;
+    line-height: 1.6;
+    transform: scale(0.7) rotate(-5deg);
+    opacity: 0;
+    animation: noteOpen 1.2s ease forwards;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes noteOpen {
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
 }
