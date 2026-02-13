@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     canvas.height = window.innerHeight;
 
     let stars = [];
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 150; i++) {
         stars.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
@@ -27,42 +27,32 @@ document.addEventListener("DOMContentLoaded", function () {
             ctx.fill();
         });
     }
-    setInterval(drawStars, 50);
+    setInterval(drawStars, 60);
 
     // ŞİFRE
     const correctPassword = "1234";
-    const unlockBtn = document.getElementById("unlockBtn");
-    const input = document.getElementById("passwordInput");
 
-    unlockBtn.addEventListener("click", function () {
+    document.getElementById("unlockBtn").addEventListener("click", function () {
 
-        if (input.value !== correctPassword) return;
+        if (document.getElementById("passwordInput").value !== correctPassword) return;
 
         document.getElementById("lockScreen").classList.add("hidden");
         document.getElementById("afterUnlock").classList.remove("hidden");
 
-        const text = "Kalbimin şifresini bulabileceğini biliyordum... ❤️";
-        let i = 0;
+        document.getElementById("unlockText").innerHTML =
+            "Kalbimin şifresini bulabileceğini biliyordum... ❤️";
 
-        const typing = setInterval(() => {
-            document.getElementById("unlockText").innerHTML += text[i];
-            i++;
-            if (i >= text.length) {
-                clearInterval(typing);
-
-                setTimeout(() => {
-                    document.getElementById("afterUnlock").classList.add("hidden");
-                    body.classList.remove("lock-mode");
-                    body.classList.add("love-mode");
-                    startIntro();
-                }, 1500);
-            }
-        }, 80);
+        setTimeout(() => {
+            document.getElementById("afterUnlock").classList.add("hidden");
+            body.classList.remove("lock-mode");
+            body.classList.add("love-mode");
+            startIntro();
+        }, 2000);
     });
 
     function startIntro() {
         const intro = document.getElementById("introMessages");
-        const introText = document.getElementById("introText");
+        const text = document.getElementById("introText");
 
         intro.classList.remove("hidden");
 
@@ -74,21 +64,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let index = 0;
 
-        function showNext() {
+        function next() {
             if (index >= messages.length) {
-                setTimeout(() => {
-                    intro.classList.add("hidden");
-                    document.getElementById("mainSection").classList.remove("hidden");
-                }, 2000);
+                intro.classList.add("hidden");
+                document.getElementById("mainSection").classList.remove("hidden");
                 return;
             }
 
-            introText.innerHTML = messages[index];
+            text.innerHTML = messages[index];
             index++;
-            setTimeout(showNext, 3000);
+            setTimeout(next, 2500);
         }
 
-        showNext();
+        next();
     }
 
     // SLIDER
@@ -124,9 +112,6 @@ document.addEventListener("DOMContentLoaded", function () {
             noBtn.style.display = "none";
         } else {
             noBtn.style.transform = `scale(${noScale})`;
-            noBtn.style.position = "absolute";
-            noBtn.style.left = Math.random() * window.innerWidth + "px";
-            noBtn.style.top = Math.random() * window.innerHeight + "px";
         }
     });
 
