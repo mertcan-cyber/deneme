@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(() => {
                     introSection.classList.add("hidden");
                     document.getElementById("mainSection").classList.remove("hidden");
-                }, 2000);
+                }, 3500);
                 return;
             }
 
@@ -156,3 +156,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
