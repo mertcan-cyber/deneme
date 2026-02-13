@@ -2,32 +2,34 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Senin İçin ❤️</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="lock-mode">
 
 <canvas id="stars"></canvas>
 
 <!-- ŞİFRE -->
-<div id="lockScreen">
+<div id="lockScreen" class="center">
     <h1>Kalbimin Şifresi Nedir? 🔐</h1>
     <input type="password" id="passwordInput" placeholder="Şifreyi gir...">
     <button id="unlockBtn" type="button">Aç ❤️</button>
 </div>
 
 <!-- UNLOCK -->
-<div id="afterUnlock" class="hidden">
+<div id="afterUnlock" class="center hidden">
     <h1 id="unlockText"></h1>
 </div>
 
 <!-- GİRİŞ -->
-<div id="introMessages" class="hidden">
+<div id="introMessages" class="center hidden">
     <h1 id="introText"></h1>
 </div>
 
 <!-- ANA -->
-<div id="mainSection" class="hidden">
+<div id="mainSection" class="center hidden">
 
     <div id="slider">
         <img src="foto1.jpg">
@@ -49,7 +51,7 @@
 </div>
 
 <!-- EVET SONRASI -->
-<div id="loveScreen" class="hidden">
+<div id="loveScreen" class="center hidden">
     <div class="love-box">
         <h1>Tabii ki seviyorsun 😌❤️</h1>
         <p>Başka seçenek mi olacaktı ki zaten? 😏</p>
@@ -59,7 +61,7 @@
 </div>
 
 <!-- NOT -->
-<div id="noteScreen" class="hidden">
+<div id="noteScreen" class="center hidden">
     <div class="note">
         <h2>Canımın içi ❤️</h2>
         <p>
