@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // ⭐ YILDIZ ANİMASYONU
+    // YILDIZLAR
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     setInterval(drawStars, 50);
 
-    // 🔐 ŞİFRE
+    // ŞİFRE
     const correctPassword = "1234";
     const unlockBtn = document.getElementById("unlockBtn");
     const input = document.getElementById("passwordInput");
@@ -38,23 +38,20 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("lockScreen").classList.add("hidden");
             document.getElementById("afterUnlock").classList.remove("hidden");
 
-            const text = "Kalbimin şifresini bulabileceğini biliyordum... ❤️\nHer zaman kalbimde bu şifre geçerlidir...";
+            const text = "Kalbimin şifresini bulabileceğini biliyordum... ❤️";
             let i = 0;
 
             const typing = setInterval(() => {
-                document.getElementById("unlockText").innerHTML += 
-                    text[i] === "\n" ? "<br>" : text[i];
+                document.getElementById("unlockText").innerHTML += text[i];
                 i++;
-
                 if (i >= text.length) {
                     clearInterval(typing);
 
                     setTimeout(() => {
                         document.getElementById("afterUnlock").classList.add("hidden");
-                        document.getElementById("siteContent").classList.remove("hidden");
-                    }, 2000);
+                        showIntro();
+                    }, 1500);
                 }
-
             }, 50);
 
         } else {
@@ -62,20 +59,43 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // 📸 FOTO SLAYT
-    const slides = document.querySelectorAll("#slider img");
-    if (slides.length > 0) {
-        let slideIndex = 0;
-        slides[0].style.opacity = 1;
+    function showIntro() {
+        const introTexts = [
+            "Bugün sıradan bir gün değil...",
+            "Çünkü bugün kalbimin sahibine küçük bir sürprizim var...",
+            "Hazırsan devam edelim ❤️"
+        ];
 
-        setInterval(() => {
-            slides[slideIndex].style.opacity = 0;
-            slideIndex = (slideIndex + 1) % slides.length;
-            slides[slideIndex].style.opacity = 1;
-        }, 3000);
+        let index = 0;
+        document.getElementById("introMessages").classList.remove("hidden");
+
+        const interval = setInterval(() => {
+            document.getElementById("introText").innerHTML = introTexts[index];
+            index++;
+
+            if (index >= introTexts.length) {
+                clearInterval(interval);
+
+                setTimeout(() => {
+                    document.getElementById("introMessages").classList.add("hidden");
+                    document.getElementById("mainSection").classList.remove("hidden");
+                }, 2000);
+            }
+        }, 2000);
     }
 
-    // ❤️ EVET / HAYIR BUTONLARI
+    // FOTO SLAYT
+    const slides = document.querySelectorAll("#slider img");
+    let slideIndex = 0;
+    slides[0].style.opacity = 1;
+
+    setInterval(() => {
+        slides[slideIndex].style.opacity = 0;
+        slideIndex = (slideIndex + 1) % slides.length;
+        slides[slideIndex].style.opacity = 1;
+    }, 3000);
+
+    // BUTONLAR
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
 
@@ -96,13 +116,19 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             noBtn.style.transform = `scale(${noScale})`;
             noBtn.style.position = "absolute";
-            noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
-            noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+            noBtn.style.left = Math.random() * window.innerWidth + "px";
+            noBtn.style.top = Math.random() * window.innerHeight + "px";
         }
     });
 
     yesBtn.addEventListener("click", function () {
-        alert("Ben de seni seviyorum ❤️");
+        document.getElementById("mainSection").classList.add("hidden");
+        document.getElementById("loveScreen").classList.remove("hidden");
+    });
+
+    document.getElementById("nextMessageBtn").addEventListener("click", function () {
+        document.getElementById("loveScreen").classList.add("hidden");
+        document.getElementById("noteScreen").classList.remove("hidden");
     });
 
 });
