@@ -29,7 +29,7 @@ body {
     z-index: -1;
 }
 
-/* ORTAK MERKEZ */
+/* MERKEZLEME ORTAK */
 #lockScreen,
 #afterUnlock,
 #introMessages,
@@ -44,20 +44,37 @@ body {
     padding: 20px;
 }
 
-/* ANA MERKEZ */
+/* INPUT */
+input {
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 15px;
+}
+
+/* BUTTON */
+button {
+    padding: 15px 35px;
+    font-size: 20px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* MAIN ORTALAMA */
 #mainSection {
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* İÇ ORTA BLOK */
-#mainSectionInner {
-    display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     gap: 50px;
     text-align: center;
 }
@@ -67,7 +84,6 @@ body {
     width: 280px;
     height: 380px;
     position: relative;
-    margin: 0 auto;
 }
 
 #slider img {
@@ -89,13 +105,12 @@ body {
 
 #questionSection h2 {
     font-size: 42px;
-    margin: 0;
 }
 
 .buttons {
     display: flex;
     gap: 30px;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 #yesBtn {
