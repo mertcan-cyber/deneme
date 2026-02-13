@@ -1,16 +1,27 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    color: white;
-    background: black;
     overflow-x: hidden;
+    transition: background 1s ease;
+}
+
+/* Şifre ekranı modu */
+.lock-mode {
+    background: black;
+    color: white;
+}
+
+/* Pembe romantik mod */
+.love-mode {
+    background: linear-gradient(135deg, #ff4e8b, #8a2be2);
+    color: white;
 }
 
 .hidden {
     display: none !important;
 }
 
-/* YILDIZ CANVAS */
+/* YILDIZ */
 #stars {
     position: fixed;
     width: 100%;
@@ -18,7 +29,7 @@ body {
     z-index: -1;
 }
 
-/* ORTAK MERKEZLEME */
+/* MERKEZLEME */
 #lockScreen,
 #afterUnlock,
 #introMessages,
@@ -31,11 +42,6 @@ body {
     align-items: center;
     text-align: center;
     padding: 20px;
-}
-
-/* ŞİFRE */
-#lockScreen h1 {
-    font-size: 36px;
 }
 
 input {
@@ -53,29 +59,41 @@ button {
     border: none;
     cursor: pointer;
     transition: 0.3s;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 button:hover {
     transform: scale(1.1);
 }
 
-/* GİRİŞ MESAJI */
-#introText {
-    font-size: 32px;
-    max-width: 600px;
+/* SORU */
+#questionSection h2 {
+    font-size: 40px;
 }
 
-/* ANA BÖLÜM */
-#mainSection {
-    min-height: 100vh;
+.buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
 }
 
-/* SLAYT */
+#yesBtn {
+    background: #ff007f;
+    color: white;
+}
+
+#noBtn {
+    background: #333;
+    color: white;
+}
+
+#warningText {
+    margin-top: 40px;
+    font-size: 22px;
+    color: yellow;
+}
+
+/* FOTO */
 #slider {
     width: 280px;
     height: 380px;
@@ -93,34 +111,23 @@ button:hover {
     border-radius: 15px;
 }
 
-/* SORU */
-#questionSection h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-.buttons {
-    display: flex;
-    gap: 30px;
-}
-
-#yesBtn {
-    background: #ff007f;
-    color: white;
-}
-
-#noBtn {
-    background: #444;
-    color: white;
-}
-
-#warningText {
-    margin-top: 35px;
-    font-size: 24px;
-    color: yellow;
-}
-
 /* EVET SONRASI */
+.love-box {
+    background: rgba(255,255,255,0.15);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.love-box h1 {
+    font-size: 42px;
+}
+
+.love-box p {
+    font-size: 22px;
+}
+
 .emoji {
     font-size: 60px;
     margin: 20px 0;
@@ -134,6 +141,6 @@ button:hover {
     width: 70%;
     max-width: 600px;
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     font-family: cursive;
 }
