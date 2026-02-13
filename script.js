@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const body = document.body;
 
-    // YILDIZ SADECE LOCK MODE'DA
+    // YILDIZ
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
@@ -52,23 +52,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 setTimeout(() => {
                     document.getElementById("afterUnlock").classList.add("hidden");
-
-                    // ARKA PLANI DEĞİŞTİR
                     body.classList.remove("lock-mode");
                     body.classList.add("love-mode");
-
                     startIntro();
                 }, 1500);
             }
         }, 80);
-
     });
 
     function startIntro() {
-        const introSection = document.getElementById("introMessages");
+        const intro = document.getElementById("introMessages");
         const introText = document.getElementById("introText");
 
-        introSection.classList.remove("hidden");
+        intro.classList.remove("hidden");
 
         const messages = [
             "Bugün sıradan bir gün değil...",
@@ -81,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function showNext() {
             if (index >= messages.length) {
                 setTimeout(() => {
-                    introSection.classList.add("hidden");
+                    intro.classList.add("hidden");
                     document.getElementById("mainSection").classList.remove("hidden");
                 }, 2000);
                 return;
@@ -95,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showNext();
     }
 
-    // FOTO
+    // SLIDER
     const slides = document.querySelectorAll("#slider img");
     if (slides.length > 0) {
         let slideIndex = 0;
@@ -116,6 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let yesScale = 1;
 
     noBtn.addEventListener("click", function () {
+
         document.getElementById("warningText").classList.remove("hidden");
 
         yesScale += 0.2;
