@@ -5,6 +5,7 @@ body {
     transition: background 1s ease;
 }
 
+/* ARKA PLAN MODLARI */
 .lock-mode {
     background: black;
     color: white;
@@ -19,6 +20,7 @@ body {
     display: none !important;
 }
 
+/* YILDIZ */
 #stars {
     position: fixed;
     width: 100%;
@@ -26,7 +28,7 @@ body {
     z-index: -1;
 }
 
-/* ANA MERKEZ */
+/* ANA ORTALAMA */
 #mainSection {
     height: 100vh;
     display: flex;
@@ -34,9 +36,8 @@ body {
     align-items: center;
 }
 
-/* ORTA BLOK – TÜM İÇERİK BURADA */
+/* İÇ BLOK */
 #mainSectionInner {
-    width: 300px;              /* slider genişliğine çok yakın */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,11 +45,13 @@ body {
     text-align: center;
 }
 
-/* SLIDER */
+/* SLIDER – BÜYÜTÜLDÜ + YUKARI + HAFİF SOL */
 #slider {
-    width: 280px;
-    height: 380px;
+    width: 320px;              /* biraz büyüttük */
+    height: 430px;
     position: relative;
+    margin-top: -30px;         /* yukarı al */
+    transform: translateX(-15px);  /* hafif sola kaydır */
 }
 
 #slider img {
@@ -58,25 +61,24 @@ body {
     position: absolute;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-    border-radius: 15px;
+    border-radius: 18px;
 }
 
 /* SORU */
 #questionSection {
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 #questionSection h2 {
-    font-size: 32px;
+    font-size: 36px;
     margin: 0;
 }
 
 .buttons {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     margin-top: 20px;
 }
 
@@ -91,7 +93,7 @@ body {
 }
 
 #warningText {
-    margin-top: 25px;
-    font-size: 18px;
+    margin-top: 30px;
+    font-size: 20px;
     color: yellow;
 }
