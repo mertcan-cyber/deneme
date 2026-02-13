@@ -28,6 +28,21 @@ body {
     z-index: -1;
 }
 
+/* ORTAK MERKEZ */
+#lockScreen,
+#afterUnlock,
+#introMessages,
+#loveScreen,
+#noteScreen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
 /* ANA ORTALAMA */
 #mainSection {
     height: 100vh;
@@ -41,17 +56,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 50px;
     text-align: center;
 }
 
-/* SLIDER – BÜYÜTÜLDÜ + YUKARI + HAFİF SOL */
+/* SLIDER */
 #slider {
-    width: 320px;              /* biraz büyüttük */
-    height: 430px;
+    width: 280px;
+    height: 380px;
     position: relative;
-    margin-top: -30px;         /* yukarı al */
-    transform: translateX(-15px);  /* hafif sola kaydır */
 }
 
 #slider img {
@@ -61,7 +74,7 @@ body {
     position: absolute;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-    border-radius: 18px;
+    border-radius: 15px;
 }
 
 /* SORU */
@@ -72,14 +85,14 @@ body {
 }
 
 #questionSection h2 {
-    font-size: 36px;
+    font-size: 42px;
     margin: 0;
 }
 
 .buttons {
     display: flex;
-    gap: 25px;
-    margin-top: 20px;
+    gap: 30px;
+    margin-top: 25px;
 }
 
 #yesBtn {
@@ -93,7 +106,7 @@ body {
 }
 
 #warningText {
-    margin-top: 30px;
-    font-size: 20px;
+    margin-top: 35px;
+    font-size: 24px;
     color: yellow;
 }
