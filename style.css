@@ -67,8 +67,10 @@ body {
     width: 280px;
     height: 380px;
     position: relative;
-    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
 
 #slider img {
     width: 100%;
@@ -143,3 +145,4 @@ body {
     box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     font-family: cursive;
 }
+
