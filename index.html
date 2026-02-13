@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Senin İçin ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Giriş -->
+    <div id="intro">
+        <div class="intro-text">
+            <p>Bugün sıradan bir gün değil...</p>
+            <p>Çünkü bugün kalbimin sahibine bir sürprizim var.</p>
+            <p>Belki küçük bir site...</p>
+            <p>Ama içindeki hisler sonsuz ❤️</p>
+            <p>Hazırsan başlıyoruz...</p>
+        </div>
+    </div>
+
+    <!-- Ana İçerik -->
+    <div id="main" class="hidden">
+
+        <div id="messages">
+            <p class="message">Seni tanıdığım gün...</p>
+            <p class="message hidden">Hayatımın en güzel günüydü ❤️</p>
+            <p class="message hidden">Çünkü sen geldin ve her şey değişti...</p>
+        </div>
+
+        <button id="nextBtn">Devam Et</button>
+
+        <!-- Soru -->
+        <div id="questionSection" class="hidden">
+            <h2>Beni Seviyor musun? 😏</h2>
+            <div class="buttons">
+                <button id="yesBtn">EVET ❤️</button>
+                <button id="noBtn">HAYIR 🙄</button>
+            </div>
+            <p id="warningText" class="hidden">Emin misin? 😳</p>
+        </div>
+
+        <!-- Sonuç -->
+        <div id="result" class="hidden">
+            <h1>Ben de seni sonsuz seviyorum ❤️</h1>
+            <div id="heartExplosion"></div>
+        </div>
+
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
