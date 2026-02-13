@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             text.innerHTML = messages[index];
             index++;
-            setTimeout(next, 2500);
+            setTimeout(next, 3500);
         }
 
         next();
@@ -126,3 +126,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
