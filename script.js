@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // YILDIZLAR
+    // ⭐ YILDIZ ANİMASYONU
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
@@ -26,76 +26,100 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     setInterval(drawStars, 50);
 
-    // ŞİFRE
+    // 🔐 ŞİFRE
     const correctPassword = "1234";
     const unlockBtn = document.getElementById("unlockBtn");
     const input = document.getElementById("passwordInput");
+    const unlockText = document.getElementById("unlockText");
 
     unlockBtn.addEventListener("click", function () {
 
-        if (input.value === correctPassword) {
+        if (input.value !== correctPassword) return;
 
-            document.getElementById("lockScreen").classList.add("hidden");
-            document.getElementById("afterUnlock").classList.remove("hidden");
+        // Şifre ekranı gizle
+        document.getElementById("lockScreen").classList.add("hidden");
 
-            const text = "Kalbimin şifresini bulabileceğini biliyordum... ❤️";
-            let i = 0;
+        // Unlock ekranı göster
+        document.getElementById("afterUnlock").classList.remove("hidden");
 
-            const typing = setInterval(() => {
-                document.getElementById("unlockText").innerHTML += text[i];
-                i++;
-                if (i >= text.length) {
-                    clearInterval(typing);
+        // Eski yazıyı temizle
+        unlockText.innerHTML = "";
 
-                    setTimeout(() => {
-                        document.getElementById("afterUnlock").classList.add("hidden");
-                        showIntro();
-                    }, 1500);
-                }
-            }, 50);
+        const text = "Kalbimin şifresini bulabileceğini biliyordum... ❤️";
+        let i = 0;
 
-        } else {
-            document.getElementById("errorText").classList.remove("hidden");
-        }
+        const typing = setInterval(() => {
+
+            unlockText.innerHTML += text[i];
+            i++;
+
+            if (i >= text.length) {
+                clearInterval(typing);
+
+                // 2 saniye sonra giriş mesajına geç
+                setTimeout(() => {
+
+                    document.getElementById("afterUnlock").classList.add("hidden");
+                    startIntro();
+
+                }, 2000);
+            }
+
+        }, 50);
+
     });
 
-    function showIntro() {
-        const introTexts = [
+    // 💌 GİRİŞ MESAJLARI
+    function startIntro() {
+
+        const introSection = document.getElementById("introMessages");
+        const introText = document.getElementById("introText");
+
+        introSection.classList.remove("hidden");
+        introText.innerHTML = "";
+
+        const messages = [
             "Bugün sıradan bir gün değil...",
             "Çünkü bugün kalbimin sahibine küçük bir sürprizim var...",
             "Hazırsan devam edelim ❤️"
         ];
 
         let index = 0;
-        document.getElementById("introMessages").classList.remove("hidden");
 
-        const interval = setInterval(() => {
-            document.getElementById("introText").innerHTML = introTexts[index];
-            index++;
+        function showNextMessage() {
 
-            if (index >= introTexts.length) {
-                clearInterval(interval);
-
+            if (index >= messages.length) {
+                // Hepsi bittiyse ana bölüme geç
                 setTimeout(() => {
-                    document.getElementById("introMessages").classList.add("hidden");
+                    introSection.classList.add("hidden");
                     document.getElementById("mainSection").classList.remove("hidden");
                 }, 2000);
+                return;
             }
-        }, 2000);
+
+            introText.innerHTML = messages[index];
+            index++;
+
+            setTimeout(showNextMessage, 2000);
+        }
+
+        showNextMessage();
     }
 
-    // FOTO SLAYT
+    // 📸 FOTO SLAYT
     const slides = document.querySelectorAll("#slider img");
-    let slideIndex = 0;
-    slides[0].style.opacity = 1;
+    if (slides.length > 0) {
+        let slideIndex = 0;
+        slides[0].style.opacity = 1;
 
-    setInterval(() => {
-        slides[slideIndex].style.opacity = 0;
-        slideIndex = (slideIndex + 1) % slides.length;
-        slides[slideIndex].style.opacity = 1;
-    }, 3000);
+        setInterval(() => {
+            slides[slideIndex].style.opacity = 0;
+            slideIndex = (slideIndex + 1) % slides.length;
+            slides[slideIndex].style.opacity = 1;
+        }, 3000);
+    }
 
-    // BUTONLAR
+    // ❤️ BUTONLAR
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
 
