@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // ⭐ YILDIZ ANİMASYONU
+    const body = document.body;
+
+    // YILDIZ SADECE LOCK MODE'DA
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
@@ -16,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function drawStars() {
+        if (!body.classList.contains("lock-mode")) return;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = "white";
         stars.forEach(star => {
@@ -26,57 +29,46 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     setInterval(drawStars, 50);
 
-    // 🔐 ŞİFRE
+    // ŞİFRE
     const correctPassword = "1234";
     const unlockBtn = document.getElementById("unlockBtn");
     const input = document.getElementById("passwordInput");
-    const unlockText = document.getElementById("unlockText");
 
     unlockBtn.addEventListener("click", function () {
 
         if (input.value !== correctPassword) return;
 
-        // Şifre ekranı gizle
         document.getElementById("lockScreen").classList.add("hidden");
-
-        // Unlock ekranı göster
         document.getElementById("afterUnlock").classList.remove("hidden");
-
-        // Eski yazıyı temizle
-        unlockText.innerHTML = "";
 
         const text = "Kalbimin şifresini bulabileceğini biliyordum... ❤️";
         let i = 0;
 
         const typing = setInterval(() => {
-
-            unlockText.innerHTML += text[i];
+            document.getElementById("unlockText").innerHTML += text[i];
             i++;
-
             if (i >= text.length) {
                 clearInterval(typing);
 
-                // 2 saniye sonra giriş mesajına geç
                 setTimeout(() => {
-
                     document.getElementById("afterUnlock").classList.add("hidden");
+
+                    // ARKA PLANI DEĞİŞTİR
+                    body.classList.remove("lock-mode");
+                    body.classList.add("love-mode");
+
                     startIntro();
-
-                }, 2000);
+                }, 1500);
             }
-
-        }, 50);
+        }, 80);
 
     });
 
-    // 💌 GİRİŞ MESAJLARI
     function startIntro() {
-
         const introSection = document.getElementById("introMessages");
         const introText = document.getElementById("introText");
 
         introSection.classList.remove("hidden");
-        introText.innerHTML = "";
 
         const messages = [
             "Bugün sıradan bir gün değil...",
@@ -86,27 +78,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let index = 0;
 
-        function showNextMessage() {
-
+        function showNext() {
             if (index >= messages.length) {
-                // Hepsi bittiyse ana bölüme geç
                 setTimeout(() => {
                     introSection.classList.add("hidden");
                     document.getElementById("mainSection").classList.remove("hidden");
-                }, 3500);
+                }, 2000);
                 return;
             }
 
             introText.innerHTML = messages[index];
             index++;
-
-            setTimeout(showNextMessage, 2000);
+            setTimeout(showNext, 3000);
         }
 
-        showNextMessage();
+        showNext();
     }
 
-    // 📸 FOTO SLAYT
+    // FOTO
     const slides = document.querySelectorAll("#slider img");
     if (slides.length > 0) {
         let slideIndex = 0;
@@ -119,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 3000);
     }
 
-    // ❤️ BUTONLAR
+    // BUTONLAR
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
 
@@ -127,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let yesScale = 1;
 
     noBtn.addEventListener("click", function () {
-
         document.getElementById("warningText").classList.remove("hidden");
 
         yesScale += 0.2;
@@ -156,4 +144,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
-
