@@ -5,12 +5,13 @@ body {
     transition: background 1s ease;
 }
 
-/* ARKA PLAN MODLARI */
+/* LOCK MODE */
 .lock-mode {
     background: black;
     color: white;
 }
 
+/* LOVE MODE */
 .love-mode {
     background: linear-gradient(135deg, #ff4e8b, #8a2be2);
     color: white;
@@ -43,7 +44,7 @@ body {
     padding: 20px;
 }
 
-/* ANA ORTALAMA */
+/* ANA MERKEZ */
 #mainSection {
     height: 100vh;
     display: flex;
@@ -51,11 +52,12 @@ body {
     align-items: center;
 }
 
-/* İÇ BLOK */
+/* İÇ ORTA BLOK */
 #mainSectionInner {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 50px;
     text-align: center;
 }
@@ -65,6 +67,7 @@ body {
     width: 280px;
     height: 380px;
     position: relative;
+    margin: 0 auto;
 }
 
 #slider img {
@@ -109,4 +112,34 @@ body {
     margin-top: 35px;
     font-size: 24px;
     color: yellow;
+}
+
+/* LOVE BOX */
+.love-box {
+    background: rgba(255,255,255,0.15);
+    padding: 50px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.love-box h1 {
+    font-size: 42px;
+}
+
+.emoji {
+    font-size: 60px;
+    margin: 20px 0;
+}
+
+/* NOTE */
+.note {
+    background: #fff8dc;
+    color: black;
+    padding: 40px;
+    width: 70%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    font-family: cursive;
 }
