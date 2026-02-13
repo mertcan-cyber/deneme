@@ -35,4 +35,58 @@ document.getElementById("unlockBtn").onclick = () => {
         document.getElementById("lockScreen").classList.add("hidden");
         document.getElementById("afterUnlock").classList.remove("hidden");
 
-        const text = "Kalbimin şifresini bulabileceğini biliyordum... ❤️\nHer zaman kalbimde bu şifre
+        const text = "Kalbimin şifresini bulabileceğini biliyordum... ❤️\nHer zaman kalbimde bu şifre geçerlidir...";
+        let i = 0;
+
+        const typing = setInterval(() => {
+            document.getElementById("unlockText").innerHTML += text[i] === "\n" ? "<br>" : text[i];
+            i++;
+            if (i >= text.length) {
+                clearInterval(typing);
+
+                setTimeout(() => {
+                    document.getElementById("afterUnlock").classList.add("hidden");
+                    document.getElementById("siteContent").classList.remove("hidden");
+                }, 2500);
+            }
+        }, 50);
+
+    } else {
+        document.getElementById("errorText").classList.remove("hidden");
+    }
+};
+
+// FOTO SLAYT
+const slides = document.querySelectorAll("#slider img");
+let slideIndex = 0;
+slides[0].style.opacity = 1;
+
+setInterval(() => {
+    slides[slideIndex].style.opacity = 0;
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].style.opacity = 1;
+}, 3000);
+
+// BUTON OYUNU
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+let noScale = 1;
+let yesScale = 1;
+
+noBtn.onclick = () => {
+    document.getElementById("warningText").classList.remove("hidden");
+
+    yesScale += 0.2;
+    yesBtn.style.transform = `scale(${yesScale})`;
+
+    noScale -= 0.2;
+
+    if (noScale <= 0) {
+        noBtn.style.display = "none";
+    } else {
+        noBtn.style.transform = `scale(${noScale})`;
+        noBtn.style.position = "absolute";
+        noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+        noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+    }
+};
