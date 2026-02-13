@@ -31,12 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ŞİFRE
     const correctPassword = "1234";
-    const unlockBtn = document.getElementById("unlockBtn");
-    const input = document.getElementById("passwordInput");
-
-    unlockBtn.addEventListener("click", function () {
-
-        if (input.value !== correctPassword) return;
+    document.getElementById("unlockBtn").onclick = function () {
+        if (document.getElementById("passwordInput").value !== correctPassword) return;
 
         document.getElementById("lockScreen").classList.add("hidden");
         document.getElementById("afterUnlock").classList.remove("hidden");
@@ -49,20 +45,19 @@ document.addEventListener("DOMContentLoaded", function () {
             i++;
             if (i >= text.length) {
                 clearInterval(typing);
-
                 setTimeout(() => {
                     document.getElementById("afterUnlock").classList.add("hidden");
                     body.classList.remove("lock-mode");
                     body.classList.add("love-mode");
-                    startIntro();
+                    showIntro();
                 }, 1500);
             }
         }, 80);
-    });
+    };
 
-    function startIntro() {
+    function showIntro() {
         const intro = document.getElementById("introMessages");
-        const introText = document.getElementById("introText");
+        const text = document.getElementById("introText");
 
         intro.classList.remove("hidden");
 
@@ -74,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let index = 0;
 
-        function showNext() {
+        function next() {
             if (index >= messages.length) {
                 setTimeout(() => {
                     intro.classList.add("hidden");
@@ -82,62 +77,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 }, 2000);
                 return;
             }
-
-            introText.innerHTML = messages[index];
+            text.innerHTML = messages[index];
             index++;
-            setTimeout(showNext, 3000);
+            setTimeout(next, 3000);
         }
 
-        showNext();
+        next();
     }
 
-    // SLIDER
-    const slides = document.querySelectorAll("#slider img");
-    if (slides.length > 0) {
-        let slideIndex = 0;
-        slides[0].style.opacity = 1;
-
-        setInterval(() => {
-            slides[slideIndex].style.opacity = 0;
-            slideIndex = (slideIndex + 1) % slides.length;
-            slides[slideIndex].style.opacity = 1;
-        }, 3000);
-    }
-
-    // BUTONLAR
-    const yesBtn = document.getElementById("yesBtn");
-    const noBtn = document.getElementById("noBtn");
-
-    let noScale = 1;
-    let yesScale = 1;
-
-    noBtn.addEventListener("click", function () {
-
-        document.getElementById("warningText").classList.remove("hidden");
-
-        yesScale += 0.2;
-        yesBtn.style.transform = `scale(${yesScale})`;
-
-        noScale -= 0.2;
-
-        if (noScale <= 0) {
-            noBtn.style.display = "none";
-        } else {
-            noBtn.style.transform = `scale(${noScale})`;
-            noBtn.style.position = "absolute";
-            noBtn.style.left = Math.random() * window.innerWidth + "px";
-            noBtn.style.top = Math.random() * window.innerHeight + "px";
-        }
-    });
-
-    yesBtn.addEventListener("click", function () {
-        document.getElementById("mainSection").classList.add("hidden");
-        document.getElementById("loveScreen").classList.remove("hidden");
-    });
-
-    document.getElementById("nextMessageBtn").addEventListener("click", function () {
-        document.getElementById("loveScreen").classList.add("hidden");
-        document.getElementById("noteScreen").classList.remove("hidden");
-    });
-
-});
+    // SLI
