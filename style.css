@@ -1,17 +1,17 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    overflow-x: hidden;
+    overflow: hidden;
     transition: background 1s ease;
 }
 
-/* Şifre ekranı modu */
+/* LOCK MODE */
 .lock-mode {
     background: black;
     color: white;
 }
 
-/* Pembe romantik mod */
+/* LOVE MODE */
 .love-mode {
     background: linear-gradient(135deg, #ff4e8b, #8a2be2);
     color: white;
@@ -29,7 +29,7 @@ body {
     z-index: -1;
 }
 
-/* MERKEZLEME */
+/* MERKEZLEME ORTAK */
 #lockScreen,
 #afterUnlock,
 #introMessages,
@@ -37,13 +37,14 @@ body {
 #noteScreen {
     height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     text-align: center;
     padding: 20px;
 }
 
+/* INPUT */
 input {
     padding: 12px;
     font-size: 18px;
@@ -52,6 +53,7 @@ input {
     margin-top: 15px;
 }
 
+/* BUTTON */
 button {
     padding: 15px 35px;
     font-size: 20px;
@@ -66,9 +68,43 @@ button:hover {
     transform: scale(1.1);
 }
 
+/* MAIN ORTALAMA */
+#mainSection {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    text-align: center;
+}
+
+/* SLIDER */
+#slider {
+    width: 280px;
+    height: 380px;
+    position: relative;
+}
+
+#slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    border-radius: 15px;
+}
+
 /* SORU */
+#questionSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #questionSection h2 {
-    font-size: 40px;
+    font-size: 42px;
 }
 
 .buttons {
@@ -88,33 +124,15 @@ button:hover {
 }
 
 #warningText {
-    margin-top: 40px;
-    font-size: 22px;
+    margin-top: 35px;
+    font-size: 24px;
     color: yellow;
 }
 
-/* FOTO */
-#slider {
-    width: 280px;
-    height: 380px;
-    position: relative;
-    margin-bottom: 40px;
-}
-
-#slider img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    border-radius: 15px;
-}
-
-/* EVET SONRASI */
+/* LOVE BOX */
 .love-box {
     background: rgba(255,255,255,0.15);
-    padding: 40px;
+    padding: 50px;
     border-radius: 20px;
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 40px rgba(0,0,0,0.4);
@@ -124,16 +142,12 @@ button:hover {
     font-size: 42px;
 }
 
-.love-box p {
-    font-size: 22px;
-}
-
 .emoji {
     font-size: 60px;
     margin: 20px 0;
 }
 
-/* NOT KAĞIDI */
+/* NOTE */
 .note {
     background: #fff8dc;
     color: black;
