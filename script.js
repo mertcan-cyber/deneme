@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // YILDIZ
+    // ⭐ YILDIZ ANİMASYONU
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
@@ -26,9 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     setInterval(drawStars, 50);
 
-    // ŞİFRE
+    // 🔐 ŞİFRE
     const correctPassword = "1234";
-
     const unlockBtn = document.getElementById("unlockBtn");
     const input = document.getElementById("passwordInput");
 
@@ -63,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // FOTO SLAYT
+    // 📸 FOTO SLAYT
     const slides = document.querySelectorAll("#slider img");
     if (slides.length > 0) {
         let slideIndex = 0;
@@ -75,5 +74,35 @@ document.addEventListener("DOMContentLoaded", function () {
             slides[slideIndex].style.opacity = 1;
         }, 3000);
     }
+
+    // ❤️ EVET / HAYIR BUTONLARI
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+
+    let noScale = 1;
+    let yesScale = 1;
+
+    noBtn.addEventListener("click", function () {
+
+        document.getElementById("warningText").classList.remove("hidden");
+
+        yesScale += 0.2;
+        yesBtn.style.transform = `scale(${yesScale})`;
+
+        noScale -= 0.2;
+
+        if (noScale <= 0) {
+            noBtn.style.display = "none";
+        } else {
+            noBtn.style.transform = `scale(${noScale})`;
+            noBtn.style.position = "absolute";
+            noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+            noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+        }
+    });
+
+    yesBtn.addEventListener("click", function () {
+        alert("Ben de seni seviyorum ❤️");
+    });
 
 });
